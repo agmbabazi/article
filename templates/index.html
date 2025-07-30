@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article Search App</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        .error { color: red; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 1em; }
+        small { color: #555; }
+    </style>
+</head>
+<body>
+    <h1>Search News Articles</h1>
+    <form method="post">
+        <input type="text" name="query" placeholder="Search articles..." value="{{ query }}" required>
+        <select name="sort">
+            <option value="publishedAt" {% if sort_by == 'publishedAt' %}selected{% endif %}>Date</option>
+            <option value="relevancy" {% if sort_by == 'relevancy' %}selected{% endif %}>Relevancy</option>
+            <option value="popularity" {% if sort_by == 'popularity' %}selected{% endif %}>Popularity</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    {% if articles %}
+        <h2>Results:</h2>
+        <ul>
+        {% for article in articles %}
+            <li>
+                <a href="{{ article.url }}" target="_blank">{{ article.title }}</a><br>
+                <small>{{ article.source.name }} | {{ article.publishedAt }}</small><br>
+                <p>{{ article.description }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
