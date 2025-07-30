@@ -126,13 +126,13 @@
         
             <h2>Results:</h2>
             <ul>
-        
+            {% for article in articles %}
                 <li>
                     <a href="{{ article.url }}" target="_blank">{{ article.title }}</a><br>
                     <small>{{ article.source.name }} | {{ article.publishedAt }}</small><br>
                     <p>{{ article.description }}</p>
                 </li>
-        
+            {% endfor %}
             </ul>
         
         <footer>
