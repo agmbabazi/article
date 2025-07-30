@@ -109,36 +109,35 @@
             <button type="submit">Search</button>
         </form>
         <div id="msgBox"></div>
-        {% if error %}
+    
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('msgBox').innerHTML =
                         '<div class="message error">{{ error }}</div>';
                 });
             </script>
-        {% elif articles %}
+    
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('msgBox').innerHTML =
                         '<div class="message success">Search successful! Found {{ articles|length }} articles.</div>';
                 });
             </script>
-        {% endif %}
-        {% if articles %}
+        
             <h2>Results:</h2>
             <ul>
-            {% for article in articles %}
+        
                 <li>
                     <a href="{{ article.url }}" target="_blank">{{ article.title }}</a><br>
                     <small>{{ article.source.name }} | {{ article.publishedAt }}</small><br>
                     <p>{{ article.description }}</p>
                 </li>
-            {% endfor %}
+        
             </ul>
-        {% endif %}
+        
         <footer>
             Powered by <a href="https://newsapi.org/" target="_blank">NewsAPI.org</a>.<br>
-            &copy; {{ 2025 }} agmbabazi. All rights reserved. <!-- @copyright -->
+            &copy; {{ 2025 }} agnes mbabazi. All rights reserved. <!-- @copyright -->
         </footer>
     </div>
 </body>
