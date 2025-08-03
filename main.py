@@ -4,7 +4,7 @@ import requests
 from dotenv import load_dotenv
 
 # Load environment variables from config.env
-load_dotenv('config.env')
+load_dotenv()
 
 app = Flask(__name__)
 
