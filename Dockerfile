@@ -8,11 +8,13 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy app code
-COPY article_search_app ./article_search_app
+COPY app ./app
 
 ENV PORT=8080
 EXPOSE $PORT
 
-ENV FLASK_APP=article_search_app/main.py
+ENV FLASK_APP=app/main.py
+
 
 CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
+
