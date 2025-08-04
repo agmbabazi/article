@@ -1,11 +1,18 @@
-FROM python:3.10-slim
+FROM python:3.12-slim
 
-WORKDIR /app
+WORKDIR /article
 
-COPY . .
+# Copy requirements first for caching
+COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 8080
+# Copy app code
+COPY article_search_app ./article_search_app
 
-CMD ["python", "main.py"]
+ENV PORT=8080
+EXPOSE $PORT
+
+ENV FLASK_APP=article_search_app/main.py
+
+CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
