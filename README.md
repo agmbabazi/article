@@ -167,6 +167,3 @@ Refresh `http://localhost` several times to verify round-robin behavior.
 * 🐍 Built with Flask
 * 🐳 Docker & HAProxy for scalable deployment
 * 🧪 Lab environment from [waka-man/web\_infra\_lab](https://github.com/waka-man/web_infra_lab)
-
-` know if you’d like me to generate the actual `.md` file for download!
-```
