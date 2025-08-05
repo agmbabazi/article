@@ -34,3 +34,8 @@ A simple Flask web app to search news articles using [NewsAPI](https://newsapi.o
 
 ## Attribution
 - NewsAPI.org for news data.
+
+## video link 
+ - https://youtu.be/7XKJjjH8fxQ
+
+##
